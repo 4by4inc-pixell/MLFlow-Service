@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+
+env:
+  TASK_CONTENTS: ${{ secrets.MLFLOW_ECS_TASK_DEFINITION  }}
+
+jobs:
+  save-file:
+    runs-on: ubuntu-latest
+    name: Save File
+    steps:
+      - uses: actions/checkout@v4
+      - run: $TASK_CONTENTS >> task.yml
+      - run: echo Done.
+      - run: cat task.yml
