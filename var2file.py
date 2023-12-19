@@ -1,3 +1,7 @@
+"""
+Read Env var and write it to the path
+"""
+
 import argparse
 import sys
 import os
