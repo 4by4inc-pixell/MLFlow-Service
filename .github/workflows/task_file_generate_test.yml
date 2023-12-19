@@ -1,4 +1,4 @@
-name: Test var2file script.
+name: Test var2file Script
 on:
   workflow_dispatch:
     inputs:
