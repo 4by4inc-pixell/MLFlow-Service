@@ -10,7 +10,7 @@ on:
         description: 'Test scenario tags'
 
 env:
-  TASK_CONTENTS: ${{ secrets.MLFLOW_ECS_TASK_DEFINITION_CONTENT }}
+  TASK_CONTENTS: ${{ vars.TASK_DEFINITION_CONTENT_SAMPLE }}
 
 jobs:
   save-file:
@@ -18,5 +18,6 @@ jobs:
     name: Save File
     steps:
       - uses: actions/checkout@v4
+      - run: echo $TASK_CONTENTS
       - run: python var2file.py TASK_CONTENTS task.yml
       - run: cat task.yml
