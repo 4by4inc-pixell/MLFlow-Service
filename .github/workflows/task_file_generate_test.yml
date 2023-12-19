@@ -9,7 +9,7 @@ on:
         description: 'Test scenario tags'
 
 env:
-  TASK_CONTENTS: ${{ secrets.MLFLOW_ECS_TASK_DEFINITION  }}
+  TASK_CONTENTS: ${{ secrets.MLFLOW_ECS_TASK_DEFINITION_CONTENT }}
 
 jobs:
   save-file:
