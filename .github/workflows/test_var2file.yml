@@ -18,7 +18,7 @@ env:
 
 jobs:
   save-file:
-    runs-on: [self-hosted, linux, x64]
+    runs-on: [self-hosted, X64, Linux]
     name: Save File
     steps:
       - uses: actions/checkout@v4
