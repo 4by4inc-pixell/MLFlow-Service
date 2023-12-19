@@ -1,5 +1,15 @@
 FROM python:3.11
 
+## Environment variables 
+ENV AWS_ACCESS_KEY_ID="some_access_id"
+ENV AWS_SECRET_ACCESS_KEY="some_access_key"
+ENV S3_BUCKET="s3://bucket_name/path/"
+ENV MYSQL_DATABASE="some_db_name"
+ENV MYSQL_HOST="some_db_url"
+ENV MYSQL_USERNAME="some_db_user"
+ENV MYSQL_PASSWORD="some_db_password"
+ENV MYSQL_PORT=3306
+
 RUN mkdir -p /mlflow
 
 RUN pip install \
