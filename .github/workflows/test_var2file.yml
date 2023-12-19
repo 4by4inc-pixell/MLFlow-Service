@@ -1,5 +1,9 @@
 name: Test var2file Script
 on:
+  push:
+    paths:
+      - "var2file.py"
+      - .github/workflows/test_var2file.yml
   workflow_dispatch:
     inputs:
       logLevel:
