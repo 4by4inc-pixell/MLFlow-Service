@@ -17,6 +17,5 @@ jobs:
     name: Save File
     steps:
       - uses: actions/checkout@v4
-      - run: $TASK_CONTENTS >> task.yml
-      - run: echo Done.
-      - run: cat task.yml
+      - run: python var2file.py TASK_CONTENTS task.yml
+      - run: cat task.yml >> echo
