@@ -1,0 +1,48 @@
+{
+    "family": "mlflow-task",
+    "containerDefinitions": [
+        {
+            "name": "mlflow",
+            "image": "760235743813.dkr.ecr.ap-northeast-2.amazonaws.com/server.mlflow:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "mlflow-5000-tcp",
+                    "containerPort": 5000,
+                    "hostPort": 5000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                },
+                {
+                    "name": "mlflow-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [
+                {
+                    "value": "arn:aws:s3:::4by4-mlflow-bucket/mlflow.env",
+                    "type": "s3"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": []
+        }
+    ],
+    "executionRoleArn": "arn:aws:iam::760235743813:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "2048",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    }
+}
