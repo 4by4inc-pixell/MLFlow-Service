@@ -4,7 +4,7 @@
         {
             "name": "mlflow",
             "image": "760235743813.dkr.ecr.ap-northeast-2.amazonaws.com/server.mlflow:latest",
-            "cpu": 0,
+            "cpu": 1,
             "portMappings": [
                 {
                     "name": "mlflow-5000-tcp",
