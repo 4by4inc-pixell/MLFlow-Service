@@ -18,4 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python var2file.py TASK_CONTENTS task.yml
-      - run: cat task.yml >> echo
+      - run: cat task.yml
