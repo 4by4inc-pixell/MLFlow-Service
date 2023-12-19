@@ -1,4 +1,4 @@
-FROM python:3.9.18-bullseye
+FROM python:3.11
 
 RUN mkdir -p /mlflow
 
@@ -6,7 +6,7 @@ RUN pip install \
     pymysql \
     boto3
 
-RUN pip install mlflow==2.7.1
+RUN pip install mlflow==2.9.2
 
 EXPOSE 5000
 
@@ -15,6 +15,6 @@ EXPOSE 5000
 CMD mlflow server \
     --host 0.0.0.0 \
     --port 5000 \
-    --default-artifact-root ${BUCKET} \
-    --backend-store-uri mysql+pymysql://${USERNAME}:${PASSWORD}@${HOST}:${PORT}/${DATABASE} \
+    --default-artifact-root ${S3_BUCKET} \
+    --backend-store-uri mysql+pymysql://${MYSQL_USERNAME}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE} \
     --app-name basic-auth
