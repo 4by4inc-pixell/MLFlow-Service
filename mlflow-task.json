@@ -3,8 +3,9 @@
     "containerDefinitions": [
         {
             "name": "mlflow",
-            "image": "760235743813.dkr.ecr.ap-northeast-2.amazonaws.com/server.mlflow:latest",
-            "cpu": 1,
+            "image": "760235743813.dkr.ecr.ap-northeast-2.amazonaws.com/server.mlflow:fa20a0a3b5b7b4d9c0a51734c1e1d6be6dfbd1cb",
+            "cpu": 1024,
+            "memory": 2048,
             "portMappings": [
                 {
                     "name": "mlflow-5000-tcp",
@@ -31,7 +32,16 @@
             ],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": []
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/mlflow-task",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            }
         }
     ],
     "executionRoleArn": "arn:aws:iam::760235743813:role/ecsTaskExecutionRole",
