@@ -26,5 +26,4 @@ CMD mlflow server \
     --host 0.0.0.0 \
     --port 5000 \
     --default-artifact-root ${S3_BUCKET} \
-    --backend-store-uri mysql+pymysql://${MYSQL_USERNAME}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE} \
-    --app-name basic-auth
+    --backend-store-uri mysql+pymysql://${MYSQL_USERNAME}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE} 
