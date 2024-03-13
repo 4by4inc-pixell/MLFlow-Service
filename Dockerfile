@@ -16,7 +16,7 @@ RUN pip install \
     pymysql \
     boto3
 
-RUN pip install mlflow==2.9.2
+RUN pip install mlflow==2.11.1
 
 EXPOSE 5000
 
